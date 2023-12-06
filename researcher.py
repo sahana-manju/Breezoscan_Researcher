@@ -7,7 +7,6 @@ import pandas as pd
 import plotly.express as px
 import hiplot as hip
 from streamlit import runtime
-from streamlit_option_menu import option_menu
 from math import radians, sin, cos, sqrt, atan2
 import geocoder
 
@@ -66,7 +65,7 @@ st.sidebar.markdown("<p style='text-align:justify;'>This page offers a platform 
 if st.sidebar.markdown(f'<a href="https://aqiproject-dcbypjgtfn7bexqbfcnbin.streamlit.app"><button>Logout</button> </a>', unsafe_allow_html=True):
     pass
 
-df_air=pd.read_csv('/Users/sahanamanjunath/Downloads/AQI and Lat Long of Countries.csv')
+df_air=pd.read_csv('AQI and Lat Long of Countries.csv')
 
 tabs = st.tabs(["About Air Quality Index(AQI) Data",  "Air Quality Index Prediction", "Upload new Air Quality Index (AQI) Data to Database"])
 
