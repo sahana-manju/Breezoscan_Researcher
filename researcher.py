@@ -56,7 +56,7 @@ def redirect_to_streamline():
     subprocess.run(["streamlit", "run", "proj_2.py"])
 
 
-#if st.sidebar.markdown(f'<a href="https://example.com"><button>Go back to Home Page</button> </a>', unsafe_allow_html=True):
+#if st.sidebar.markdown(f'<a href="https://cmsefinal-jmfv3xchfgdeabujtoywg3.streamlit.app"><button>Go back to Home Page</button> </a>', unsafe_allow_html=True):
 #    pass
 
 st.sidebar.markdown(f'<h1 style="color:#336BFF;font-size:25px;">{"Welcome to BreezoScan advanced research page"}</h1>', unsafe_allow_html=True)
