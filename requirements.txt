@@ -7,4 +7,3 @@ plotly
 geocoder
 scikit-learn
 joblib
-pickle
