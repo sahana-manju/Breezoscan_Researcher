@@ -6,3 +6,6 @@ pandas
 plotly
 math
 geocoder
+scikit-learn
+joblib
+pickle
