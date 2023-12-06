@@ -61,7 +61,7 @@ def redirect_to_streamline():
 
 st.sidebar.markdown(f'<h1 style="color:#336BFF;font-size:25px;">{"Welcome to BreezoScan advanced research page"}</h1>', unsafe_allow_html=True)
 st.sidebar.markdown("<p style='text-align:justify;'>This page offers a platform for researchers to conduct sophisticated analyses on Air Quality Index parameters. Additionally, it furnishes details about the data, enables researchers to upload new data, and facilitates the prediction of the air quality index based on other influential features.</p>",unsafe_allow_html=True)
-if st.sidebar.markdown(f'<a href="https://aqiproject-dcbypjgtfn7bexqbfcnbin.streamlit.app"><button>Logout</button> </a>', unsafe_allow_html=True):
+if st.sidebar.markdown(f'<a href="https://cmsefinal-jmfv3xchfgdeabujtoywg3.streamlit.app"><button>Logout</button> </a>', unsafe_allow_html=True):
     pass
 
 df_air=pd.read_csv('AQI and Lat Long of Countries.csv')
