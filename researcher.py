@@ -4,6 +4,7 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
+import hiplot as hip
 import plotly.express as px
 from streamlit import runtime
 from math import radians, sin, cos, sqrt, atan2
@@ -66,7 +67,7 @@ if st.sidebar.markdown(f'<a href="https://cmsefinal-jmfv3xchfgdeabujtoywg3.strea
 
 df_air=pd.read_csv('AQI and Lat Long of Countries.csv')
 
-tabs = st.tabs(["About Air Quality Index(AQI) Data",  "Air Quality Index Prediction", "Upload new Air Quality Index (AQI) Data to Database"])
+tabs = st.tabs(["About Air Quality Index(AQI) Data",  "Air Quality Index Prediction", "Upload new Air Quality Index (AQI) Data to Database","Key takeaways from recent analysis"])
 
 
 with tabs[0]:
@@ -87,6 +88,13 @@ with tabs[0]:
     
     
     st.write(df_air)
+    st.markdown("## In depth relationship between pollutants and Air Quality Index")
+    st.markdown("Please hover over each row in the following table to see the relationship between all the pollutants and Air Quality Index")
+    print(f"HiPlot=={hip.__version__}")
+    df_air_new=df_air[['PM2.5 AQI Value','NO2 AQI Value','CO AQI Value','Ozone AQI Value','AQI Category','AQI Value']]
+    exp=hip.Experiment.from_dataframe(df_air_new)
+    exp_html=exp.to_html()
+    st.components.v1.html(exp_html,height=1400)
 
     
 
@@ -216,6 +224,20 @@ with tabs[2]:
             # Add further processing or analysis as needed
         except Exception as e:
             st.error(f"Error reading the file: {e}")
+
+with tabs[3]:
+    #Summary Report by Researcher Section creation
+    st.markdown("**Kindly view the information presented by our esteemed analysts, we present an analysis of the Air Quality Index (AQI) data collected on October 3rd, 2023, from various countries using our Air Sampling equipment. The findings indicate alarming trends in air quality across the globe.**")
+    bullet_points = [
+    "**Notably, cities in Korea and Bahrain are experiencing the most severe air pollution, falling under the 'Hazardous' category, while cities in Palau and Maldives boast the best air quality standards.**",
+    "**A concerning pattern emerges in populous countries like India and China, where cities with large populations and extensive manufacturing plants exhibit extremely poor air quality levels.**",
+    "**Geographically, Asia demonstrates the poorest air quality, contrasting with the Pacific region, which boasts the best AQI ratings.**",
+    "**Our visual analysis of Air Quality Index categories reveals a direct correlation between Dust Particles and the Air Quality Index, indicating a linear relationship. Conversely, understanding the connection between CO and NO2 pollutants proves challenging when their levels are below 50. However, once these levels surpass 50, they are classified as 'Unhealthy' or 'Hazardous.'**",
+    "**Particularly alarming is the prevalence of Dust particles and Ozone pollutants, both exhibiting high Air Quality Index values and falling within the 'Unhealthy' to 'Hazardous' range. These pollutants pose a significant threat to human health, especially impacting the respiratory system.**",
+    "**On a slightly positive note, the spread of Carbon Monoxide and Nitrogen Dioxide pollutants, while present, does not pose a significant hazard globally. In contrast, Dust Particles and Ozone are widespread and pose a substantial threat to Asian countries, exacerbating their air quality challenges.**"
+    ]
+    bullet_points_formatted = "\n".join([f"- {item}" for item in bullet_points])
+    st.markdown(bullet_points_formatted)
 
 
     
