@@ -3,6 +3,7 @@ seaborn
 matplotlib
 numpy
 pandas
+hiplot
 plotly
 geocoder
 scikit-learn
