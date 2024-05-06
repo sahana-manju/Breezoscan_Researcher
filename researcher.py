@@ -91,10 +91,10 @@ with tabs[0]:
     st.markdown("## In depth relationship between pollutants and Air Quality Index")
     st.markdown("Please hover over each row in the following table to see the relationship between all the pollutants and Air Quality Index")
     print(f"HiPlot=={hip.__version__}")
-    df_air_new = df_air[['PM2.5 AQI Value', 'NO2 AQI Value', 'CO AQI Value']]
-    exp = hip.Experiment.from_dataframe(df_air_new)
-    exp_html = exp.to_html()
-    st.components.html(exp_html, height=1400)
+    #df_air_new = df_air[['PM2.5 AQI Value', 'NO2 AQI Value', 'CO AQI Value']]
+    #exp = hip.Experiment.from_dataframe(df_air_new)
+    #exp_html = exp.to_html()
+    #st.components.html(exp_html, height=1400)
 
     
 
